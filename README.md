@@ -94,10 +94,16 @@ docker image ls
 
 ## 2일차
 - 함수(계속)
-    - 문자 함수: 
-    - 숫자 함수:
-    - 날짜 함수:
+    - 문자 함수: [SQL](./day02/sql02_함수2.sql)
+    - 숫자 함수
+    - 날짜 함수
     - 형변환함수
+- 복수행함수 : [SQL](./day02/sql02_복수행함수.sql)
+    - 집계함수
+    - GROUP BY
+    - HAVING
+    - ROLLUP
+    - RANK, DENSE_RANK, ROW_NUMBER
 
 - 데이터베이스 타입형
     - **CHAR(n)** : 고정형 문자열, 최대 2000 바이트
@@ -113,3 +119,10 @@ docker image ls
     - CLOB : 대용량 텍스트 데이터 타입, 최대 4G
     - BLOB : 대용량 바이너리 데이터 타입, 최대 4G
     - BFILE : 외부 파일에 저장된 데이터, 4G
+
+## 3일차
+- JOIN
+    - 카티션곱
+    - 내부조인, 외부조인
+- DDL
+    - CREATE, ALTER, DROP
