@@ -83,6 +83,33 @@ docker image ls
         [ORDER BY 정렬속성(들) ASC|DESC]
         [WITH ROLLUP]
         ```
+ - 기본 쿼리 학습: [SQL](./day01/sql01_select기본.sql)
+        1. 기본 SELECT
+        2. WHERE 조건절
+        3. NULL(!)
+        4. ORDER BY 정렬
+        5. 집합
+
 
 
 ## 2일차
+- 함수(계속)
+    - 문자 함수: 
+    - 숫자 함수:
+    - 날짜 함수:
+    - 형변환함수
+
+- 데이터베이스 타입형
+    - **CHAR(n)** : 고정형 문자열, 최대 2000 바이트
+        - CHAR(20)으로 'Hello World'를 저장하면, 'Hello World     '로 저장!(공백 포함됨)
+    - **VARCHAR2(n)** : 가변형 문자열, 최대 4000 바이트
+        - VARCHAR2(20)로 'Hello World'를 저장하면, 'Hello World'로 저장 
+    - INTEGER : 모든 데이터의 기준. 4byte, 정수를 담는 데이터형
+    - FLOAT(p) : 실수형 타입, 최대 22byte
+    - **NUMBER(p,s)** : 숫자값, p 전체자리수, s 소수점 길이. 최대 22byte
+    - **DATE** : 날짜 타입
+    - **LONG** : 가변 길이 문자열, 최대 2G바이트
+    - LONG RAW(n) : 원시 이진 데이터, 최대 2G바이트
+    - CLOB : 대용량 텍스트 데이터 타입, 최대 4G
+    - BLOB : 대용량 바이너리 데이터 타입, 최대 4G
+    - BFILE : 외부 파일에 저장된 데이터, 4G
