@@ -165,12 +165,81 @@ docker image ls
     ```
 
 ## 4일차
-- DML
-    - INSERT
-    - DELETE
-    - UPDATE
-- 제약조건
-- INDEX
+- VS Code DB 플러그인
+    - 확장 -> database 검색 -> Database Client(Weijan Chen) > 확장 중 Database 선택택
+<img src = "./image\db002.png" width="700">
+
+- DML :[INSERT쿼리](./day04/sql01_insert.sql), [UPDATE/DELETE 쿼리](./day04/sql02_update_delete.sql)
+    - INSERT : 테이블에 새로운 데이터를 삽입하는 명령
+    - 한개씩 삽입입
+    ```sql
+    INSERT INTO 테이블명 [(컬럼리스트)]
+    VALUES (값리스트);
+    ```
+
+    - 여러개 삽입
+
+    - UPDATE : 데이터 변경, where 조건 없이 실행하면 모든 데이터가 수정됨(주의)
+    ```sql
+    UPDATE 테이블명 SET
+        컬럼명 = 변경할 값
+    ```
+    - DELETE : 데이터 삭제, WHERE 조건 없이 실행하면 모든 데이터가 삭제됨 (주의)
+    ```SQL
+    DELETE FROM 테이블명
+    [WHERE 조건];
+    ```
+- 트랜잭션 :[트랜잭션](./day04/sql03_트랜잭션.sql)
+    - 논리적인 처리단위.
+    - 은행에서 돈을 찾을 때 아주 많은 테이블 접근해서 일을 처리
+        - 적어도 7,8개 이상의 테이블에 접근해서 조회하고 업데이트 수행
+        - 제대로 일이 처리안되면 다시 원상복귀.
+        - DB 설정 AUTO COMMIT 해제 권함
+        - ROLLBACK 트랜잭션 종료가 아님. COMMIT만 종료를 뜻함.
+    ```sql
+    SET TRANSACTION READ WRITE; -- 트랜잭션 시작(생략 가능, 옵션션)
+    COMMIT; -- 트랜잭션 확정
+    ROLLBACK; -- 원상복구
+
+- 제약조건(constraint) : [제약조건쿼리](./day04/sql04_제약조건.sql)
+    - 잘못된 데이터가 들어가지 않도록 막는 기법
+        - PRIMARY KEY : 기본키, usique not null. 중복x, 없어도 안됨
+        - FOREIGN KEY : 외래키, 다른 테이블 PK에 없는 값을 가져다 쓸 수 없음
+        - NOT NULL : 값이 빠지면 안됨
+        - UNIQUE : 들어간 데이터가 중복되면 안됨
+        - CHECK : 기준에 부합하지 않는 데이터는 입력되면 안됨
+        - DEFAULT : NULL 입력 시 기본 값이 입력되도록 하는 제약조건
+        ```SQL
+        CREATE TABLE 테이블명 (
+            컬럼 생성 시 제약조건 추가
+        );
+
+        ALTER TABLE 테이블명 ADD CONSTRAINT 제약조건
+        ```
+- INDEX: [INDEX쿼리](./day04/sql05_index.sql), [인덱스용테이블생성](./ref/bulk_data_insert.sql)
+    - 책의 찾아보기와 동일한 기능
+    - 검색을 매우 빨리 할 수 있도록 해줌
+    - B(alanced) TREE 를 사용하여 검색횟수를 LOG(n)건으로 줄임
+    - 인덱스 종류
+        - 클러스터드(Clustered) 인덱스(테이블 당 1개)
+            - PK 에 자동으로 생성되는 인덱스(무지 빠름)
+            - PK가 없으면 처음으로 설정되는 UNIQUE 제약조건의 컬럼에 생성
+        - 보조(Non_Clustered) 인덱스 (여러개)
+            - 사용자가 추가하는 인덱스 (여러개)
+            - 클러스터드 인덱스보다 조금 느림
+    - 유의점
+        - PK에 자동 인덱스 후 컬럼에 UNIQUE를 걸어도 인덱스가 생성 안됨. 수동으로 생성 필요 
+        - WHERE 절에서 검색하는 컬럼은 인덱스를 걸어주는 것이 성능향상에 도움
+        - 인덱스는 한 테이블당 4개 이상 걸면 성능 저하
+        - NULL값, 중복값이 많은 컬럼에 인덱스는 성능 저하
+        - INSERT, UPDATE, DELETE 가 많이 발생하는 테이블에 인덱스를 걸면 성능 저하
+
+        ```sql
+        CREATE INDEX 인덱스명 ON 테이블명(인덱스에 걸 컬럼명)
+        ```
+
+## 5일차
 - VIEW
 - 서브쿼리
 - 시퀀스
+
