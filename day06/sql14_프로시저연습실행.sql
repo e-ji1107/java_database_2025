@@ -20,3 +20,4 @@ BEGIN
 	dbms_output.put_line(v_sum);
 END;
 /
+
