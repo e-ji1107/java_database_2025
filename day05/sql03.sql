@@ -15,7 +15,7 @@ CREATE TABLE order_seq (
     order_nm   varchar(20) NOT NULL,
     order_prd  varchar(100) NOT NULL,
     qty        NUMBER DEFAULT 1
-);3
+);
 
 COMMIT;
 
