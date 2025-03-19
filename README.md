@@ -352,7 +352,7 @@ docker image ls
         END;
         ```
 
-## 7일차
+## 7일차, 8일차
 - Oracle 연동 Python GUI 프로그램 개발발
     - [토이프로젝트](./toyproject/README.md)
     
