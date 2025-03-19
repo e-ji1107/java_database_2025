@@ -346,6 +346,13 @@ docker image ls
 
         ```sql
         CREATE OR REPLACE TRIGGER 트리거명
-        CREATE 0R REPLACE
+        BEFORE|AFTER INSERT|UPDATE|DELETE ON 테이블{뷰}이름
+        BEGIN
+            PL/SQL 쿼리
+        END;
+        ```
 
+## 7일차
+- Oracle 연동 Python GUI 프로그램 개발발
+    - [토이프로젝트](./toyproject/README.md)
     
