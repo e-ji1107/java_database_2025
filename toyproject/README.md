@@ -81,6 +81,27 @@ Python GUI - Oracle 연동 프로그램
     - 오라클 모듈
         - oracledb : oracle 최신버전에 매칭
         - **cx_Oracle** : 구버전까지 잘 됨
-        - 콘솔에서 '> pip install cx_Pracle' 
+        
+        - [Microsoft C++ BUild Tools](https://visualsutudio.microsoft.com/ko/visual-cpp-build-tools/) 필요
+            - Visual Studio Installer 실행
+            - 개별 구성요소에서 아래 요소 선택
+            - [x] MSVC v1xx -VS 20XX C++ x64/x86
+            - [x] C++ CMake Tools for Window
+            - [x] Windows 10 SDK(10.0.xxxxx)
+        - 설치
+    - 콘솔에서 '> pip install cx_Oracle' 
+    - 콘솔 오라클 연동 : [python](./)
+        - DPI-1047 오류 발생
+        - 64bit Oracle Client Library가 OS에 설치되지 않았기 때문에 오류 발생
+        - 사이트에서 버전에 맞는 Oracle Client를 다운로드
+            - https://www.oracle.com/kr/database/technologies/instant-client/winx64-64-downloads.html
+        - 11g 다운로드
+        - 압축해제(""C:\Users\Admin\Documents\카카오톡 받은 파일\instantclient-basic-windows.x64-11.2.0.4.0.zip""), 시스템 정보 path 등록
+        - 재부팅~!
+    - 콘솔 테스트 결과
+        <img src="../image/db008.png" width = "600">
+
+
 - QtDesigner로 화면 구성
+    
 - PyQt로 Oracle 연동 CRUD 구현
