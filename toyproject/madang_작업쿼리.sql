@@ -18,6 +18,11 @@ FROM students;
 
 COMMIT;
 
+CREATE SEQUENCE seq_student
+INCREMENT BY 1
+START WITH 1;
+
+
 INSERT INTO MADANG.STUDENTS
-(STD_ID, STD_NAME, STD_MOBILE, STD_REGYEAR)
+(std_id, std_name, std_mobile, std_regyear)
 VALUES(SEQ_STUDENT.NEXTVAL, :v_std_name, :v_std_mobile, :v_std_regyear);
