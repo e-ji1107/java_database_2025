@@ -26,3 +26,11 @@ START WITH 1;
 INSERT INTO MADANG.STUDENTS
 (std_id, std_name, std_mobile, std_regyear)
 VALUES(SEQ_STUDENT.NEXTVAL, :v_std_name, :v_std_mobile, :v_std_regyear);
+
+UPDATE MADANG.STUDENTS
+SET STD_NAME = :v_std_name,
+	STD_MOBILE = :v_std_mobile,
+	STD_REGYEAR = :v_std_regyear
+WHERE STD_ID = :v_std_id
+
+DELETE FROM students WHERE std_id = :v_std_id;
